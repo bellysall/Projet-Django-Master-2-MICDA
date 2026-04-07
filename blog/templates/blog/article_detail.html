@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Détail Article</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-4">
+
+<h1>{{ object.titre }}</h1>
+<p>{{ object.contenu }}</p>
+<p><strong>Auteur :</strong> {{ object.auteur }}</p>
+
+{% if object.image %}
+    <img src="{{ object.image.url }}" class="img-fluid mb-3">
+{% endif %}
+
+<a href="{% url 'article_update' object.pk %}" class="btn btn-warning">Modifier</a>
+<a href="{% url 'article_delete' object.pk %}" class="btn btn-danger">Supprimer</a>
+
+</body>
+</html>
